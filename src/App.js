@@ -1,26 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { connect } from 'react-redux';
+import { setQuestions } from './actions';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+  //props.setQuestions(["Question1", "Question2"]);
+  componentDidMount = () => {
+    this.props.setQuestions(["Question1", "Question2"]);
+  }
+  render(){
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h1>JavaScript Quiz</h1>
+          <h4>Question Size: {this.props.questions.length}</h4>
+          <h4>Number of right answer: {this.props.numRight} </h4>
+        </header>
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    questions: state.questions,
+    numRight: state.numRight
+  }
+}
+
+export default connect(mapStateToProps,{ setQuestions } )(App);
