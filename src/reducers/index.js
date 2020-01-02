@@ -1,4 +1,5 @@
 const defaultState = {
+    currentQuestion: 0,
     questions: [],
     numRight: 0
 }
