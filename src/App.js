@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { setQuestions } from './actions';
 
 import MainContainer from './container/MainContainer';
+import Result from './container/Result';
 
 class App extends React.Component{
   //props.setQuestions(["Question1", "Question2"]);
@@ -16,7 +17,7 @@ class App extends React.Component{
     },
     {
         question: `What is the correct JavaScript syntax to change the content of the HTML element here => <p id="geek">GeeksforGeeks</p> `,
-        answer: "JavaScript",
+        answer: "document.getElementById(“geek”).innerHTML=”I am a Geek”;",
         options: [
           "document.getElement(“geek”).innerHTML=”I am a Geek”;" ,
           "document.getElementById(“geek”).innerHTML=”I am a Geek”;",
@@ -52,10 +53,19 @@ class App extends React.Component{
   render(){
     // console.log("Options: ", this.props.questions)
     return (
-      <>
-        <MainContainer/>
-      </>
+      <div className="app-container">
+        {this.props.questions.length === this.props.currentQuestion? <Result /> :
+          <MainContainer/>
+        }
+      </div>
     );
   }
 }
-export default connect(null,{ setQuestions } )(App);
+
+const mapStateToProps = (state) => {
+  return {
+    questions: state.questions,
+    currentQuestion: state.currentQuestion
+  }
+}
+export default connect(mapStateToProps,{ setQuestions } )(App);

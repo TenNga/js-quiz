@@ -1,0 +1,32 @@
+
+.main-container {
+    margin: 5% 10%;
+    text-align: center;
+    font-size: 30px;
+}
+
+.question-num {
+    margin: 10px;
+    font-size: 30px;
+}
+
+.question {
+    margin: 10px;
+    font-size: 30px;
+    color: teal;
+}
+
+.optList {
+    margin: 5px 0px;
+    padding: 10px 0px;
+    border-radius: 8px;
+    list-style: none;
+    color: rgb(21, 40, 63);
+    background-color: cornflowerblue;
+}
+
+.optList:hover {
+    background-color: darkgrey;
+    color: white;
+    cursor: pointer;
+}
