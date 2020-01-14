@@ -47,7 +47,42 @@ class App extends React.Component{
   answer: "False",
   options: ["True" , "False", "None", "Both" ]
 },
-    ]);
+{
+  question: `Predict the output of the following JavaScript code. <script type="text/javascript"> 
+  a = 8 + "8"; 
+  document.write(a); 
+  </script>`,
+  answer: "88",
+  options: ["16" , "Complilation Error", "88", "Run Time Error" ]
+},
+{
+  question: `Predict the output of the following JavaScript code. 
+  <script type="text/javascript"> 
+var a="GeeksforGeeks"; 
+var x=a.lastIndexOf("G"); 
+document.write(x); 
+</script> `,
+  answer: "8",
+  options: ["8" , "0", "9", "Error" ]
+},
+{
+  question: `Which of the following is not a reserved word in JavaScript?",
+  answer: "program",
+  options: ["interface" , "throws", "program", "short" ]
+},
+{
+  question: "Predict the output of the following JavaScript code.
+  <script type="text/javascript" language="javascript"> 
+  
+var a = "GeeksforGeeks"; 
+var result = a.substring(4, 5); 
+document.write(result); 
+  
+</script> `,
+  answer: "s",
+  options: ["sf" , "ks", "s", "k" ]
+},
+]);
   }
   
   render(){
